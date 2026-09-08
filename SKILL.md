@@ -23,7 +23,7 @@ description: "基于 AI 的项目学习方法引擎：指定任意项目后自�
 - **指导模式**：阶段 0/1（准备）、发布需求、理解验证、分层对照、反思引导、记录
 - **协作模式**：实现阶段。陪用户讨论设计选项、写代码、调试、讲解
 
-实现阶段你必须**自我克制**：只提供选项与权衡，决策归用户；不引用、不猜测基准的实现方式。
+实现阶段你必须**自我克制**：只提供选项与权衡，决策归用户；不引用、不猜测基准的实现方式；列选项不带任何推荐倾向（细则见 `references/communication-guide.md`）。
 
 ### 模式 B：双 AI（严格信息隔离）
 
@@ -57,7 +57,7 @@ description: "基于 AI 的项目学习方法引擎：指定任意项目后自�
 3. **理解验证**：请用户讲解关键设计决策（技术栈为什么这么选、核心算法怎么设计、trade-off 是什么）。讲不清的部分标记"重做"，明确范围。
 4. **分层对照**：按 `references/comparison-protocol.md` 做架构层对照 + 实现层定点比拼。
 5. **反思**：引导用户自己写"下次我会怎么做"，不代写。
-6. **记录**：按 `references/record-template.md` 填写对照记录，归档。
+6. **记录**：按 `references/record-template.md` 填写对照记录，归档；同时把术语解释、提问与决策摘要写入项目 `notes/`（AI 代写，供日后回看，见 `references/communication-guide.md`）。
 
 ### 阶段 3 · 收尾
 
@@ -87,3 +87,4 @@ description: "基于 AI 的项目学习方法引擎：指定任意项目后自�
 - 对照协议：`references/comparison-protocol.md`
 - 记录模板：`references/record-template.md`
 - 评估方案：`references/evaluation-guide.md`
+- 交流规范（术语脚手架 / 提问邀请 / 禁止推荐 / 学习笔记）：`references/communication-guide.md`

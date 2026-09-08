@@ -25,7 +25,8 @@ ai-project-learning/
 │   ├── increment-design.md     #   增量设计
 │   ├── comparison-protocol.md  #   分层对照协议
 │   ├── record-template.md      #   对照记录模板
-│   └── evaluation-guide.md     #   评估方案
+│   ├── evaluation-guide.md     #   评估方案
+│   └── communication-guide.md  #   交流规范：名词脚手架、禁止推荐、学习笔记
 ├── roles/                      # 双 AI 模式的角色 skill（各自独立可安装）
 │   ├── project-learning-instructor/SKILL.md   # 指导老师
 │   └── project-learning-assistant/SKILL.md    # 协作助手
