@@ -1,0 +1,17 @@
+# 学习运行期产物（不进仓库）
+记录/
+评估记录.md
+打卡表.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 日志
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
