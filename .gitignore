@@ -12,6 +12,9 @@ venv/
 # 日志
 *.log
 
+# evals 运行产物
+*-workspace/
+
 # 系统
 .DS_Store
 Thumbs.db

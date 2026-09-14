@@ -1,0 +1,31 @@
+{
+  "skill": "ai-project-learning",
+  "purpose": "触发评估集：验证 SKILL.md 的 description 能否在正确的场景被触发、在无关场景不被触发。",
+  "how_to_use": "把每条 query 单独开一个会话发给装载了本 skill 的 AI，记录是否触发（AI 是否按本 skill 的流程响应）。触发 = 进入阶段 0 确认或引用本 skill 的方法；未触发 = 按普通问答或普通编码任务处理。",
+  "targets": {
+    "recall": ">= 0.9（应触发的查询里实际触发的比例，衡量欠触发）",
+    "precision": ">= 0.85（实际触发里本该触发的比例，衡量误触发）"
+  },
+  "queries": [
+    { "id": 1, "query": "我想系统学一下 LangChain 这个框架，该怎么开始？", "should_trigger": true, "note": "指定了具体项目 + 学习意图" },
+    { "id": 2, "query": "用这个 skill 带我学 vLLM 的核心实现", "should_trigger": true, "note": "显式点名 skill" },
+    { "id": 3, "query": "我想通过重建一个开源项目来学分布式存储，有什么办法？", "should_trigger": true, "note": "项目驱动学习意图" },
+    { "id": 4, "query": "怎么才能真正学会一个开源项目的架构，而不是看完就忘？", "should_trigger": true, "note": "学习方法诉求，指向项目学习" },
+    { "id": 5, "query": "带我从零实现一个小型 RAG 项目，我想学里面的检索算法", "should_trigger": true, "note": "指定项目 + 学习目标" },
+    { "id": 6, "query": "我想学 FastAPI，能不能找个真实项目对照着学", "should_trigger": true, "note": "对照式学习意图" },
+    { "id": 7, "query": "用项目驱动的方式教我学向量数据库", "should_trigger": true, "note": "项目驱动学习" },
+    { "id": 8, "query": "指定一个项目让我自己写一遍再对照，有这样的学习流程吗？", "should_trigger": true, "note": "先产出后对照的流程诉求" },
+    { "id": 9, "query": "我想通过增量开发的方式学一个 CLI 工具的完整实现", "should_trigger": true, "note": "增量迭代学习" },
+    { "id": 10, "query": "教我学会这个仓库的设计思路，我想自己动手重建一遍", "should_trigger": true, "note": "重建式项目学习" },
+    { "id": 11, "query": "我想把学习某个技术栈的过程变成项目实战", "should_trigger": true, "note": "项目实战学习" },
+    { "id": 12, "query": "怎么用 AI 帮我做项目式学习，而不是直接给我答案？", "should_trigger": true, "note": "AI 辅助项目学习" },
+    { "id": 13, "query": "帮我写一个 Python 脚本读取 CSV 并统计行数", "should_trigger": false, "note": "普通编码任务" },
+    { "id": 14, "query": "解释一下什么是倒排索引", "should_trigger": false, "note": "纯概念问答" },
+    { "id": 15, "query": "帮我看看这段代码有没有 bug", "should_trigger": false, "note": "代码审查" },
+    { "id": 16, "query": "帮我重构这个模块，让它更好读", "should_trigger": false, "note": "重构任务" },
+    { "id": 17, "query": "给这个项目生成一个 README", "should_trigger": false, "note": "文档写作" },
+    { "id": 18, "query": "我想学英语口语，有什么方法？", "should_trigger": false, "note": "非技术项目学习" },
+    { "id": 19, "query": "帮我把这个项目部署到服务器上", "should_trigger": false, "note": "运维任务" },
+    { "id": 20, "query": "什么是生成效应？", "should_trigger": false, "note": "概念问答，与本 skill 的方法无关" }
+  ]
+}

@@ -15,21 +15,34 @@ AI 时代写代码的成本接近零，学习重点从"怎么写"转向"怎么�
 
 配套的设计原则：增量需求驱动（不是缺陷驱动）、基准是参考答案之一（不是标准答案）、信息隔离（答案只在对照阶段出现）、理解验证与反思（防止"AI 代写、学生没懂"）。
 
+## 面向初学者的四个机制
+
+体验中暴露的最大障碍是"术语挡住决策"和"AI 的倾向性影响学生的自主判断"，为此内置了四条规则：
+
+- **术语脚手架**：关键概念首次出现时附一行解释，说明"它在本项目里管什么"，不展开成百科长文；解释概念不算泄露答案。
+- **提问邀请**：每轮开场明示"任何名词随时问"，兜住初学者"不知道自己不知道"的情况。
+- **禁止倾向性推荐**：列选项时不得出现"推荐 / 最佳 / 主流"等倾向词，也不得在学生反问时给倾向性答案——用提问把决策依据推回学生自己的约束条件。
+- **项目学习笔记**：由 AI 在每个自然节点把术语解释、提问与决策写成总结，存到项目 `notes/` 目录，供日后回看。学习发生在"询问→思考→决策"的过程中，笔记负责留存，理解验证负责确保真的学会。
+
 ## 目录结构
 
 ```
 ai-project-learning/
 ├── SKILL.md                    # 主 skill：单 AI 全流程引擎
-├── references/                 # 方法论手册（主 skill 引用）
+├── references/                 # 方法论手册（主 skill 按触发场景读取）
 │   ├── decomposition-guide.md  #   拆解方法
 │   ├── increment-design.md     #   增量设计
 │   ├── comparison-protocol.md  #   分层对照协议
 │   ├── record-template.md      #   对照记录模板
 │   ├── evaluation-guide.md     #   评估方案
-│   └── communication-guide.md  #   交流规范：名词脚手架、禁止推荐、学习笔记
+│   ├── communication-guide.md  #   交流规范：名词脚手架、禁止推荐、学习笔记
+│   └── example-walkthrough.md  #   一轮完整迭代的示例
 ├── roles/                      # 双 AI 模式的角色 skill（各自独立可安装）
 │   ├── project-learning-instructor/SKILL.md   # 指导老师
 │   └── project-learning-assistant/SKILL.md    # 协作助手
+├── evals/                      # 触发评估集与行为测试用例
+├── docs/                       # 升级记录等维护文档
+├── CHANGELOG.md                # 版本记录
 └── README.md
 ```
 
@@ -37,8 +50,8 @@ ai-project-learning/
 
 ### 模式 A：单 AI（最简单）
 
-1. 把 `SKILL.md` 装入你的 AI（支持自定义 skill 的客户端）。
-2. 说 `/start <项目名>`，或直接描述你想学的项目。
+1. 把 `SKILL.md` 连同 `references/` 目录装入你的 AI（支持自定义 skill 的客户端）。
+2. 说 `/start <项目名>`，或直接描述你想学的项目（如"用这个 skill 带我学 xxx 项目"）。
 3. 按 skill 引导走完三阶段：启动确认 → 教案产出（拆解 + 增量路线）→ 逐轮迭代。
 
 实现阶段 skill 会切换到协作模式，只给你选项与权衡，设计决策由你做。
@@ -59,17 +72,27 @@ ai-project-learning/
 
 ## 命令
 
+斜杠命令在支持自定义命令的客户端可直接使用；其他客户端用自然语言表达同样意图。括号内为等价说法。
+
 | 命令 | 作用 |
 |---|---|
-| `/start <项目>` | 启动流程 |
-| `/export-roles` | 输出双 AI 模式说明 |
-| `/record` | 填写当前轮对照记录 |
-| `/evaluate` | 跑一次评测并记录指标 |
-| `/status` | 当前进度与完成标准达成情况 |
+| `/start <项目>`（"用这个 skill 带我学 xxx"） | 启动流程 |
+| `/export-roles`（"给我双 AI 模式的角色配置"） | 输出双 AI 模式说明 |
+| `/record`（"生成本轮对照记录"） | 填写当前轮对照记录 |
+| `/evaluate`（"跑一次评测"） | 跑一次评测并记录指标 |
+| `/status`（"当前进度如何"） | 当前进度与完成标准达成情况 |
 
 ## 安装
 
 把 `SKILL.md`（及 `references/` 目录）放入 AI 客户端的 skills 目录（如 Trae 的 `.trae/skills/`、Claude 的 `~/.claude/skills/`）。角色 skill 同理，分别安装 `roles/` 下的两个。
+
+## 维护约定
+
+规则同时存在于三处：主 `SKILL.md`（及 `references/`）、`roles/project-learning-instructor/SKILL.md`、`roles/project-learning-assistant/SKILL.md`。两个角色 skill 需要独立安装、无法互相引用，因此规则是刻意重复的。
+
+修改任何一条角色行为规则时，必须同步检查这三处，避免出现互相冲突的表述。历史上出现过一次这样的漂移：协作助手曾写着"可以推荐"，与主 skill 的"禁止倾向性推荐"直接冲突。
+
+版本变化记录在 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 许可
 
