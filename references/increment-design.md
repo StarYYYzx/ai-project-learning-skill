@@ -66,7 +66,7 @@
 |---|---|
 | Backlog | 里程碑下的步骤列表 |
 | Iteration / Sprint | 一个小步骤（以可验证交付为边界，不按固定时长） |
-| Definition of Done | 验收标准 + 上面四条 DoD |
+| Definition of Done | 验收标准 + 上面五条 DoD |
 | Iteration Review | 里程碑演示 + 完整对照表 |
 | Retrospective | 用户自己写的反思 |
 

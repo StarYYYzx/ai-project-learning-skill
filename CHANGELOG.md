@@ -2,6 +2,36 @@
 
 本文件记录 ai-project-learning 的版本变化。版本号遵循语义化版本约定。完整的演化过程、关键决策与遗留问题见 [docs/dev-history.md](docs/dev-history.md)。
 
+## [0.8.0] - 2026-10-29
+
+### Added
+
+- 不适用场景声明：刷题、语法速查、纯概念学习、一次性代码生成不适用
+- 学习者主权条款：用户坚持跳过环节时提醒一次后服从，档案记"跳过"，parity 标"未验证"
+- 档案减负：单 AI 合并 step 与 review；新增轻量步骤模板与判据
+- 命令实体文件 `commands/`（start、resume、export-roles、record、commit、milestone、parity、evaluate、status）
+- `docs/delivery-mode-plan.md` 标注 DRAFT 与决策状态
+- `git-workflow.md` 补充基准项目许可证边界提示
+
+### Changed
+
+- 决策中立放宽为"先表态、后分析"：删除禁用词表、对称枚举与"决策前零评价"要求；学习者给出初步倾向与理由后，AI 可给覆盖所有候选的分析，标注"我的分析，供参考"，不催促、不收窄、不替其拍板
+- 单 AI 模式增加风险声明：AI 持有答案库，对照前无法彻底隔离，由用户在阶段 0 知情选择
+- 双 AI 模式改为两窗口：窗口 1 主 skill 兼任指导老师，窗口 2 只装 assistant；`project-learning-instructor` 降为可选角色
+- assistant 禁读清单补齐 `lesson/`；`PROGRESS.md` 的决策索引移入里程碑档案，只留指向链接
+- 规则单一事实源：主 SKILL 纪律表作为摘要与索引，references 为权威正文；角色 skill 保留角色特有的最小自包含规则
+- instructor 角色内联 Git 纪律与档案骨架，单独安装不再引用落空
+- `evals/behavior-evals.md` 增至 15 个用例，新增 assistant 隔离、助手不提交、术语脚手架；新增实测记录表头（尚未实跑）
+- 修复 DoD 条数不一致（"五条" vs "四条"）；示例改为真正的二元决策，不再把三选一按二元揭示
+
+### 起因
+
+依据 `docs/revision-proposal-2026-10-29.md` 的评审。核心判断是：单 AI 的强隔离不可靠，应改为风险声明 + 用户自选；机械禁词防不住倾向且抬高决策门槛，应改为顺序规则；角色单独安装时引用会落空，需自包含。
+
+### 未实施
+
+- evals 全量实跑未在本轮完成：需要为每个用例单独开会话，当前环境无法等价执行；只补充了用例与回归纪律，未伪造结果。
+
 ## [0.7.0] - 2026-10-29
 
 ### Added
